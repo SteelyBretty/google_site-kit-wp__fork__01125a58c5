@@ -28,6 +28,7 @@ import { __, _n, sprintf } from '@wordpress/i18n';
  * Internal dependencies
  */
 import { useSelect, useInViewSelect } from 'googlesitekit-data';
+import { stringToDate } from '../../util';
 import { CORE_UI } from '../../googlesitekit/datastore/ui/constants';
 import { CORE_USER } from '../../googlesitekit/datastore/user/constants';
 import {
@@ -140,7 +141,7 @@ export default function WPDashboardUniqueVisitorsChartGA4( props ) {
 		);
 
 	if ( isZeroChart ) {
-		options.hAxis.ticks = [ refDate ];
+		options.hAxis.ticks = [ stringToDate( refDate ) ];
 	}
 
 	return (
